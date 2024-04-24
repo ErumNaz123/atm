@@ -1,0 +1,19 @@
+{
+  "name": "atm-01",
+  "version": "1.0.0",
+  "description": "withdraw and checkbalance",
+  "main": "index.js",
+  "type":"module",
+  "bin":"index.js",
+  "scripts": {
+    "test": "inquirer ,pakage.json , ts config ,node module "
+  },
+  "author": "Erum naz",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.19"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}
