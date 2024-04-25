@@ -15,10 +15,10 @@ let pinAns= await inquirer.prompt
  
    ]
    );
-   if(pinAns.pin===myPin)
+   if(pinAns.pin===myPin){
     console.log("correct pincode");
 
-   let operationAns= await inquirer.prompt
+    let operationAns= await inquirer.prompt
    (
   [
   {
@@ -30,25 +30,34 @@ let pinAns= await inquirer.prompt
    }
     ]
     );
-
-if(operationAns.operation==="check Balance")
-    console.log(`your current balance is: ${myBalance} in rupees `);
-
-
-  let amountAns = await inquirer.prompt
-(
-    [
-        {
-            name: "amount",
-            message:"enter your amount",
-            type: "number",
+    console.log(operationAns.operation);
 
 
 
-}
-]
-);
+    if(operationAns.operation==="withdraw"){
 
-if(operationAns.operation==="withdraw")
-  console.log(amountAns.amount);
+      let amountAns  = await inquirer.prompt
+      (
+      [
+          {
+              name: "amount",
+              message:"enter your amount",
+              type: "number",
+  
+  
+  
+  }
+  ]
+  );
+  
+  myBalance -= amountAns.amount;
+    console.log("your remaining balance is: "+ myBalance);}
+
+
+
+  }else{console.log("incorrect pincode");}
+
+
+
+
 

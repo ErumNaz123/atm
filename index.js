@@ -8,24 +8,29 @@ let pinAns = await inquirer.prompt([
         type: "number",
     }
 ]);
-if (pinAns.pin === myPin)
+if (pinAns.pin === myPin) {
     console.log("correct pincode");
-let operationAns = await inquirer.prompt([
-    {
-        name: "operation",
-        message: "what do you want",
-        type: "list",
-        choices: ["check Balance", "withdraw"],
+    let operationAns = await inquirer.prompt([
+        {
+            name: "operation",
+            message: "what do you want",
+            type: "list",
+            choices: ["check Balance", "withdraw"],
+        }
+    ]);
+    console.log(operationAns.operation);
+    if (operationAns.operation === "withdraw") {
+        let amountAns = await inquirer.prompt([
+            {
+                name: "amount",
+                message: "enter your amount",
+                type: "number",
+            }
+        ]);
+        myBalance -= amountAns.amount;
+        console.log("your remaining balance is: " + myBalance);
     }
-]);
-if (operationAns.operation === "check Balance")
-    console.log(`your current balance is: ${myBalance} in rupees `);
-let amountAns = await inquirer.prompt([
-    {
-        name: "amount",
-        message: "enter your amount",
-        type: "number",
-    }
-]);
-if (operationAns.operation === "withdraw")
-    console.log(amountAns.amount);
+}
+else {
+    console.log("incorrect pincode");
+}
